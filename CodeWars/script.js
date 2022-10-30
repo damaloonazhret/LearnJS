@@ -195,3 +195,18 @@ function sumArray(array) {
 }
 
 sumArray = a => a ? a.sort((x, y) => x - y).slice(1, -1).reduce((s, e) => s + e, 0) : 0
+
+
+function fakeBin(x) {
+    let arr = [];
+    for (let letter of x) {
+        if (letter >= 5) {
+            arr.push(1);
+        } if (letter < 5) {
+            arr.push(0);
+        }
+    }
+    return arr.join().replace(/[\s.,%]/g, '');
+}
+
+console.log(fakeBin('366058562030849490134388085'));
