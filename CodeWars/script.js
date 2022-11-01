@@ -210,3 +210,73 @@ function fakeBin(x) {
 }
 
 console.log(fakeBin('366058562030849490134388085'));
+
+
+
+
+
+function fizzbuzz(n) {
+    const arr = [];
+
+    for (let i = 1; i <= n; i++) {
+        if (i % 3 === 0 && i % 5 === 0) {
+            arr.push('FizzBuzz');
+        } else if (i % 5 === 0) {
+            arr.push('Buzz');
+        } else if (i % 3 === 0) {
+            arr.push('Fizz');
+        } else arr.push(i);
+    }
+    return arr;
+}
+
+console.log(fizzbuzz(15));
+
+
+
+
+
+
+const arr = ['a', 'e', 'i', 'o', 'u'];
+
+function getCount(str) {
+    const alpha = str.split('');
+    return alpha.filter(el => arr.includes(el)).length;
+}
+
+
+
+
+
+
+String.prototype.toJadenCase = function () {
+    const arr = this.split(' ');
+    const big = arr.map((el) => {
+        return el[0].toUpperCase() + el.slice(1);
+    });
+    return big.join(' ');
+};
+
+var str = "How can mirrors be real if our eyes aren't real";
+console.log(str.toJadenCase());
+
+
+
+
+
+function getSum(a, b) {
+    if (a === b) return a || b;
+    let newA = a;
+    let newB = b;
+    if (a > b) {
+      newA = b;
+      newB = a;
+    }
+    let pe = 0;
+    for (let i = newA; i <= newB; i++) {
+      pe += i;
+    }
+    return pe;
+  }
+  
+  console.log(getSum(0, -1));
