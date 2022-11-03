@@ -319,11 +319,26 @@ function positiveSum(arr) {
 }
 
 
-function highAndLow(numbers){
+
+function highAndLow(numbers) {
     let arr2 = [];
-    let arr = numbers.split(' ').sort((a,b) => a - b);
+    let arr = numbers.split(' ').sort((a, b) => a - b);
+    // return arr[0] arr[arr.length -1];
+    arr2.push(arr[arr.length - 1]);
     arr2.push(arr[0]);
-    // console.log(arr);
-    console.log(arr2);
-  }
-  console.log(highAndLow("8 3 -5 42 -1 0 0 -9 4 7 4 -4"));
+    return arr2.join(' ');
+}
+console.log(highAndLow("8 3 -5 42 -1 0 0 -9 4 7 4 -4"));
+
+
+
+
+
+
+function isPalindrome(line) {
+    let arr2 = line.toString();
+    const arr = arr2.split('').reverse().join('');
+    if (arr == line) {
+        return true;
+    } else return false;
+}
