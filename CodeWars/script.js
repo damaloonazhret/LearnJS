@@ -269,14 +269,61 @@ function getSum(a, b) {
     let newA = a;
     let newB = b;
     if (a > b) {
-      newA = b;
-      newB = a;
+        newA = b;
+        newB = a;
     }
     let pe = 0;
     for (let i = newA; i <= newB; i++) {
-      pe += i;
+        pe += i;
     }
     return pe;
+}
+
+console.log(getSum(0, -1));
+
+//   Give your answer as a string matching "odd" or "even".
+
+function oddOrEven(array) {
+    let a = 0;
+
+    const arr = array.map((el) => {
+        a += el;
+    })
+    if (a % 2 === 0) {
+        return 'even'
+    }
+    return 'odd'
+}
+
+console.log(oddOrEven([0, 1, 5]));
+
+
+
+
+
+
+function positiveSum(arr) {
+    let a = 0;
+    arr.forEach(el => {
+        if (el <= 0) {
+            return 0
+        } a += el;
+    });
+    return a;
+}
+
+console.log(positiveSum([1, -2, 3, 4, 5]));
+
+function positiveSum(arr) {
+    return arr.reduce((a, b) => a + (b > 0 ? b : 0), 0);
+}
+
+
+function highAndLow(numbers){
+    let arr2 = [];
+    let arr = numbers.split(' ').sort((a,b) => a - b);
+    arr2.push(arr[0]);
+    // console.log(arr);
+    console.log(arr2);
   }
-  
-  console.log(getSum(0, -1));
+  console.log(highAndLow("8 3 -5 42 -1 0 0 -9 4 7 4 -4"));
