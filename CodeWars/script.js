@@ -342,3 +342,28 @@ function isPalindrome(line) {
         return true;
     } else return false;
 }
+
+
+
+
+
+var isAnagram = function (test, original) {
+    let a = test.toLowerCase().split('').sort().join('');
+    let b = original.toLowerCase().split('').sort().join('');
+    // console.log(a);
+    // console.log(b);
+    if (a === b) {
+        return true;
+    } else return false;
+};
+
+console.log(isAnagram("Buckethead", "DeathCubeK"));
+
+
+
+
+function century(year) {
+    return Math.floor((year - 1) / 100) + 1;
+}
+
+console.log(century(1700));
