@@ -367,3 +367,189 @@ function century(year) {
 }
 
 console.log(century(1700));
+
+
+
+
+
+
+
+function mygcd(x, y) {
+    let z = [];
+    let t = [];
+    for (let i = 1; i <= x; i++) {
+        if (x % i === 0) {
+            z.push(i);
+        }
+    }
+    // console.log(z);
+    for (let i = 1; i <= y; i++) {
+        if (y % i === 0) {
+            t.push(i);
+        }
+    }
+    // const g = Math.max.apply(null, t)
+    // const h = t.indexOf(g);
+    // t.splice(h, 1);
+    // console.log(t);
+    const all = [...z, ...t];
+    let mas = [];
+    all.sort((a, b) => a - b);
+    for (let i = 0; i <= all.length - 1; i++) {
+        if (all[i] === all[i + 1]) {
+            mas.push(all[i]);
+        }
+    }
+    return Math.max.apply(null, mas)
+}
+// сокращенная запись одинаковых элементов двух массивов
+const commonElements = arr1.filter((element) => {
+    // check if the element
+    // is present in arr2
+    // and return the boolean value
+    return arr2.includes(element);
+});
+
+console.log(commonElements);
+
+
+
+
+function mygcd(x, y) {
+    let z = [];
+    for (let i = 1; i <= x; i++) {
+        if (x % i === 0 && y % i === 0) {
+            z.push(i);
+        }
+    }
+    return Math.max.apply(null, z)
+}
+
+
+
+console.log(mygcd(1590771464, 1590771620));
+
+function mygcd(x, y) {
+    return y == 0 ? x : mygcd(y, x % y)
+}
+
+
+
+
+
+function factorial(n) {
+    if (n > 12 || n < 0) {
+        throw new RangeError("RangeError");
+    }
+    let arr = [];
+    for (let i = n; i > 0; i--) {
+        arr.push(i);
+    }
+    return arr.reduce((a, b) => a * b, 1)
+}
+
+console.log(factorial(13));
+
+
+
+
+
+
+function removeEveryOther(arr) {
+    let arra = [];
+    for (let i = 0; i <= arr.length; i = i + 2) {
+        arra.push(arr[i]);
+    }
+    return arra;
+}
+
+console.log(
+    removeEveryOther([
+        "s",
+        "p",
+        "7",
+        "v",
+        "b",
+        "n",
+        "7",
+        "0",
+        "k",
+        "l",
+        "u",
+        "7",
+        "e",
+        "c",
+        "3",
+        "z",
+        "c"
+    ])
+);
+
+
+
+
+
+function distinct(a) {
+    let unique = [...new Set(a)];
+    return unique;
+}
+
+console.log(
+    distinct([1, 2, 1, 4, 6, 7, 3, 4, 3, 3, 7, 9, 0])
+);
+
+
+
+
+
+
+
+function capital(capitals) {
+    return capitals.map(
+        (c) => `The capital of ${c.state || c.country} is ${c.capital}`
+    );
+}
+let country_capitals = [{ 'country': 'Spain', 'capital': 'Madrid' }]
+console.log(capital(country_capitals));
+
+
+
+
+
+
+
+
+function findShort(s) {
+    const res = [];
+    const leng = [];
+    let arr = s.split(" ");
+    for (let i = 0; i < arr.length; i += 1) {
+        const chunk = arr.slice(i, i + 1);
+        res.push(chunk);
+    }
+    for (let i = 0; i < res.length; i++) {
+        leng.push(res[i][0].length)
+    }
+    return Math.min(...leng)
+}
+
+console.log(findShort("Let's travel abroad shall we"));
+
+
+
+
+
+
+
+
+function squareDigits(...num) {
+    let ya = num.toString().split('')
+    let arr = [];
+    for (let i = 0; i < ya.length; i++) {
+        arr.push(Math.pow(ya[i], 2))
+    }
+    let f = arr.join('');
+    return parseInt(f)
+}
+
+console.log(squareDigits(2112));
