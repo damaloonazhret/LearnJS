@@ -669,3 +669,35 @@ const objC = { a: 5, d: 11, e: 8 };
 const objD = { c: 3 };
 
 console.log(combine(objA, objB, objC));
+
+
+
+
+
+
+
+function nbDig(n, d) {
+    let x = '';
+    for (var i = 0; i <= n; i++) {
+        x += Math.pow(i, 2);
+    }
+    return x.split(d).length - 1
+}
+
+console.log(nbDig(11011, 2));
+
+
+
+
+
+
+
+const findMissing = (arr1, arr2) => {
+    arr1 = arr1.sort();
+    arr2 = arr2.sort();
+    for (let i = 0; i < arr1.length; i++) {
+        if (arr1[i] != arr2[i]) return arr1[i];
+    }
+}
+
+console.log(findMissing([6, 1, 3, 6, 8, 2], [3, 6, 6, 1, 2]));
