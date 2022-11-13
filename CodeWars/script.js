@@ -504,6 +504,19 @@ console.log(
 
 
 
+function mergeArrays(arr1, arr2) {
+    let all = [...arr1, ...arr2]
+    all.sort((a, b) => b - a).reverse()
+    return [...new Set(all)]
+}
+
+console.log(mergeArrays([1, 3, 5, 7, 9, 11, 12], [1, 2, 3, 4, 5, 10, 12]));
+
+
+
+
+
+
 function capital(capitals) {
     return capitals.map(
         (c) => `The capital of ${c.state || c.country} is ${c.capital}`
@@ -553,3 +566,106 @@ function squareDigits(...num) {
 }
 
 console.log(squareDigits(2112));
+
+
+
+
+var ArrowFunc = function (arr) {
+    return String.fromCharCode.apply(0, arr)
+}
+
+console.log(ArrowFunc([84, 101, 115, 116]));
+
+
+
+
+
+
+
+
+function add(num1, num2) {
+    let arr1 = num1.toString().split("");
+    let arr2 = num2.toString().split("");
+    let a;
+    if (arr1.length <= arr2.length) {
+        a = arr2.length - 1;
+    } else {
+        a = arr1.length - 1;
+    }
+    for (let i = 0; i <= a; i++) {
+        if (arr1.length > arr2.length) {
+            arr2.unshift(0);
+        } else if (arr2.length > arr1.length) {
+            arr1.unshift(0);
+        }
+    }
+    let b = [];
+    for (let i = 0; i <= a; i++) {
+        b.push(+arr1[i] + +arr2[i])
+    }
+    let z = b.join('');
+    return parseInt(z)
+}
+
+console.log(add(38875310, 1383));
+
+
+
+
+
+
+var questions = [{
+    question: "What's the currency of the USA?",
+    choices: ["US dollar", "Ruble", "Horses", "Gold"],
+    corAnswer: 0
+}, {
+    question: "Where was the American Declaration of Independence signed?",
+    choices: ["Philadelphia", "At the bottom", "Frankie's Pub", "China"],
+    corAnswer: 0
+}];
+
+questions.forEach(function (i) {
+    i.usersAnswer = null;
+    console.log(i);
+});
+
+for (var i = 0; i < questions.length; i++) {
+    questions[i].usersAnswer = null;
+}
+
+questions.forEach(function (i) {
+    i.usersAnswer = null;
+});
+
+
+
+
+
+function combine(...massiv_object) {
+    // console.log(JSON.stringify(rest, null, 2))
+    let arr = {};
+    massiv_object.forEach((oBъedok_x_3) => (Object.entries(oBъedok_x_3).forEach((item) => {
+        if (arr[item[0]] || 0) {
+            arr[item[0]] += item[1]
+        }
+        else {
+            arr[item[0]] = item[1]
+        }
+    })))
+    return arr
+    // return massiv_object.reduce(
+    //   (acc, n) => 
+    //   (
+    //    Object.entries(n).forEach((item, i) => console.log(item))
+    //     // Object.entries(n).forEach(([k, v]) => (acc[k] = (acc[k] || 0) + v)), acc 
+    //   ),
+    //   {}
+    // );
+}
+
+const objA = { a: 10, b: 20, c: 30 };
+const objB = { a: 3, c: 6, d: 3 };
+const objC = { a: 5, d: 11, e: 8 };
+const objD = { c: 3 };
+
+console.log(combine(objA, objB, objC));
