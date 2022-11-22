@@ -701,3 +701,243 @@ const findMissing = (arr1, arr2) => {
 }
 
 console.log(findMissing([6, 1, 3, 6, 8, 2], [3, 6, 6, 1, 2]));
+
+
+
+
+
+
+
+
+function getDecimal(none) {
+    let index = []
+    index = none.toString()
+    let res = index.split('.')[1];
+    if (res === undefined) {
+        return 0
+    }
+    let result = `0.` + res
+    return +result
+}
+
+console.log(getDecimal(-1007.9));
+
+
+
+
+
+
+
+function maxTriSum(numbers) {
+    numbers.sort((a, b) => b - a)
+    const unique = new Set(numbers)
+    const uniquemass = [...unique]
+    let sum = 0
+    for (let i = 0; i < 3; i++) {
+        sum += uniquemass[i]
+    }
+    return sum
+}
+
+console.log(maxTriSum([2, 1, 8, 0, 6, 4, 8, 6, 2, 4]));
+
+
+
+
+
+
+
+
+
+
+
+function nicknameGenerator(name) {
+    const glass = ["a", "e", "i", "o", "u"];
+    // return glass.forEach(el => {
+    //   if (name[2] === glass[el]) {
+    //     return name[0] + name[1] + name[2] + name[3];
+    //   }
+    // });
+
+    if (name.length <= 3) {
+        return "Error: Name too short";
+    }
+    for (let i = 0; i < 5; i++) {
+        if (name[2] === glass[i]) {
+            return name[0] + name[1] + name[2] + name[3];
+        }
+    }
+    return name[0] + name[1] + name[2];
+}
+
+console.log(nicknameGenerator("Sademeasd"));
+
+
+
+
+const sortMyString = s => {
+    let even = s.split('').filter((v, i) => i % 2 === 0).join('')
+    let odd = s.split('').filter((v, i) => i % 2 !== 0).join('')
+    return even + ' ' + odd
+}
+
+console.log(sortMyString("YCOLUE'VREER"));
+
+
+
+
+
+
+
+function isPowerOfTwo(n) {
+    if (n == 2) {
+        return true
+    }
+    if (n < 2) {
+        return false
+    }
+
+    return isPowerOfTwo(n / 2)
+}
+
+
+console.log(isPowerOfTwo(4097))
+
+
+
+
+
+
+let List = [
+    { "4": "dog" },
+    { "2": "took" },
+    { "3": "his" },
+    { "-2": "Vatsan" },
+    { "5": "for" },
+    { "6": "a" },
+    { "12": "spin" }
+];
+
+function sentence(List) {
+    const sortable = [];
+    List.forEach((el) => {
+        for (let key in el) {
+            sortable.push([key, el[key]]);
+        }
+    });
+    sortable.sort((a, b) => a[0] - b[0]);
+
+    let acca = []
+
+    sortable.reduce((acc, now) => {
+        // return acc += `${now[1]} `
+        acca.push(now[1])
+    }, '')
+    return acca.join(' ')
+}
+
+console.log(sentence(List));
+
+
+
+
+
+
+
+let List = [
+    { "4": "dog" },
+    { "2": "took" },
+    { "3": "his" },
+    { "-2": "Vatsan" },
+    { "5": "for" },
+    { "6": "a" },
+    { "12": "spin" }
+];
+function sentence(List) {
+    const sortable = [];
+    List.forEach((el) => {
+        for (let key in el) {
+            sortable.push([key, el[key]]);
+        }
+    });
+    sortable.sort((a, b) => a[0] - b[0]);
+
+    const mapmap = sortable.map(x => x[1])
+
+    return mapmap.join(' ')
+}
+
+console.log(sentence(List));
+
+
+
+
+
+
+var test = [[1, 2, 3, 4, 5, 6, 7, 8, 9, 10], [71, -548, 12.3, 83, -47, -1.7, -892, 58, 31415, 2718, -38]]
+
+var Sum = 'sum = function(arr){ return arr.reduce((accum, now) => accum += now ); }';
+
+console.log(sum(test[0]))
+
+
+
+
+
+function spread(func, args) {
+    return func(...args)
+}
+
+console.log(spread(function (x, y) { return x + y }, [1, 2]))
+
+
+
+
+
+function vowelOne(s) {
+    const code = []
+    let lower = s.toLowerCase()
+    Array.from(lower).forEach((el) => {
+        if (el === 'a' || el === 'e' || el === 'i' || el === 'o' || el === 'u') {
+            code.push(1)
+        } else {
+            code.push(0)
+        }
+    })
+    return code.join('')
+}
+
+console.log(vowelOne("vowelOne"))
+
+
+
+
+
+function killer(suspectInfo, dead) {
+    const arr = [];
+    for (let key in suspectInfo) {
+        for (let i = 0; i < dead.length; i++) {
+            if (suspectInfo[key].includes(dead[i])) {
+                arr.push([key]);
+            } else {
+                continue;
+            }
+        }
+    }
+    if (arr.length === 1) {
+        return arr[0].toString()
+    }
+    for (let i = 0; i < arr.length; i++) {
+        for (let k = 1; k <= arr.length; k++) {
+            if (arr[i] === arr[k]) {
+                return arr[i].toString();
+            }
+        }
+    }
+}
+
+console.log(killer({ Brad: [], Megan: ["Ben", "Kevin"], Finn: [] }, ["Ben"]));
+
+function killer(suspectInfo, dead) {
+    return Object.keys(suspectInfo).find(x => dead.every(y => suspectInfo[x].includes(y)))
+   }
