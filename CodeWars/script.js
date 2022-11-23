@@ -940,4 +940,30 @@ console.log(killer({ Brad: [], Megan: ["Ben", "Kevin"], Finn: [] }, ["Ben"]));
 
 function killer(suspectInfo, dead) {
     return Object.keys(suspectInfo).find(x => dead.every(y => suspectInfo[x].includes(y)))
-   }
+}
+
+
+
+
+
+
+const data3 = [0, 0, 1, 1, 0, 1, 1, 0, 0, 0, 1, 0, 1, 0, 0, 1];
+
+function dataReverse(data) {
+    const pomoika = [];
+    const arr = [];
+    const otvet = [];
+    for (let i = 0; i <= data.length; i += 8) {
+        arr.push(data.slice(i, i + 8));
+    }
+    arr.forEach((el) => {
+        if (el.length === 0) {
+            pomoika.push(el);
+        } else {
+            otvet.push(el);
+        }
+    });
+    return [].concat(...otvet.reverse());
+}
+
+console.log(dataReverse(data3));
