@@ -1087,4 +1087,5 @@ class Dog extends Animal {
 }
 var billy = new Shark("Billy", 3, "Alive and well");
 
-console.log(billy.name)
+console.log(billy.name) 
+// test
