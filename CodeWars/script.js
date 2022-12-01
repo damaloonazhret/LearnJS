@@ -1089,3 +1089,4 @@ var billy = new Shark("Billy", 3, "Alive and well");
 
 console.log(billy.name) 
 // test
+// test2
