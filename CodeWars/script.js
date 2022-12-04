@@ -1012,6 +1012,10 @@ console.log(mountMoose.howMany(['JOHN', 'FRED', 'BOB', 'CARL', 'RYAN', 'KATE']))
 
 
 
+var Ball = function (ballType) {
+    this.ballType = ballType || 'regular';
+};
+
 
 
 
@@ -1087,7 +1091,7 @@ class Dog extends Animal {
 }
 var billy = new Shark("Billy", 3, "Alive and well");
 
-console.log(billy.name) 
+console.log(billy.name)
 // test
 // test2
 // test3
