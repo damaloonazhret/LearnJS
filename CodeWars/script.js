@@ -1095,3 +1095,33 @@ console.log(billy.name)
 // test
 // test2
 // test3
+
+
+
+
+
+// Go ahead and define your class :)
+class Cube {
+    constructor(length) {
+        this.length = length;
+    }
+    get surfaceArea() {
+        return 6 * Math.pow(this.length, 2)
+    }
+    get volume() {
+        return this.length * this.length * this.length;
+    }
+    set surfaceArea(S) {
+        this.length = Math.pow(S / 6, 1 / 2)
+    }
+    set volume(v) {
+        this.length = Math.pow(v, 1 / 3)
+    }
+}
+
+
+var cube = new Cube(1);
+
+console.log(cube.length);
+console.log(cube.surfaceArea);
+console.log(cube.volume);
