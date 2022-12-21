@@ -1125,3 +1125,49 @@ var cube = new Cube(1);
 console.log(cube.length);
 console.log(cube.surfaceArea);
 console.log(cube.volume);
+
+
+
+
+
+
+async function sayJoke(apiUrl, jokeId) {
+    // if (apiUrl !== "http://great.jokes/christmas") {
+    //   throw new Error(`No jokes at url: ${apiUrl}`);
+    // }
+    const unjsonedData = await fetch(apiUrl, {
+        method: "GET"
+    });
+    const jokes = await unjsonedData.json();
+    console.log(jokes);
+
+    const joke = jokes.jokes.find((item) => item.id === jokeId);
+
+    console.log(joke);
+
+    if (joke === undefined) {
+        throw new Error(`No jokes found id: ${jokeId}`);
+    }
+
+    return {
+        saySetup: function () {
+            return joke.setup;
+        },
+        sayPunchLine: function () {
+            return joke.punchLine;
+        }
+    };
+
+    // console.log(joke)
+}
+
+const url = "https://mocki.io/v1/4a09d075-9b87-44e4-90bc-29439c9f55d8";
+
+new Promise((resolve, reject) => {
+    sayJoke(url, 101);
+    const joke = sayJoke(url, 101)
+    resolve(joke)
+}).then((joke) => {
+    console.log(joke.saySetup())
+    console.log(joke.sayPunchLine())
+})
